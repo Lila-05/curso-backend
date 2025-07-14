@@ -1,6 +1,6 @@
-import { IPostsRepository, Posts } from "types/PostsTypes";
-import { PostsModel } from "models/Posts"; 
-import { Query } from "types/RepositoryTypes";
+import { IPostsRepository, Posts } from "../types/PostsTypes";
+import { PostsModel } from "../models/Posts"; 
+import { Query } from "../types/RepositoryTypes";
 
 
 export class PostsRepository implements IPostsRepository{

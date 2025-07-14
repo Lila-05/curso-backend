@@ -1,5 +1,5 @@
 import { IRolesRepository, Roles } from "types/RolesTypes"
-import { RolesModel } from "@models/Roles"
+import { RolesModel } from "../models/Roles"
 import { Query } from "types/RepositoryTypes"
 
 export class RolesRepository implements IRolesRepository {

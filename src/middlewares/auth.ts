@@ -1,13 +1,12 @@
-import { UserService } from "@services/userService";
+import { UserService } from "../services/userService";
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { UserRepository } from "repositories/userRepositories";
-import { IUserRepository, IUserService, User } from "types/UsersTypes";
+import { UserRepository } from "../repositories/userRepositories";
+import { IUserRepository, IUserService, User } from "../types/UsersTypes";
 import { permissions, Method} from "../types/PermissionsTypes";
 
 const userRepository: IUserRepository = new UserRepository();
 const userService: IUserService = new UserService(userRepository);
-
 
 export const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
     const jwtSecret = process.env.JWT_SECRET as string
@@ -17,7 +16,10 @@ export const verifyToken = async (req: Request, res: Response, next: NextFunctio
         const verify = jwt.verify(token, jwtSecret) as User;
 
         const getUser = await userService.findUsersById(verify.id);
-        if(!getUser) return res.status(400);
+        if(!getUser) {
+            res.status(400).send("User not found");
+            return;
+        }
 
         req.currentUser = getUser
         next();
@@ -26,7 +28,6 @@ export const verifyToken = async (req: Request, res: Response, next: NextFunctio
         res.status(401).send(error.message)
     }
 };
-
 
 export const getPermissions = async (req: Request, res: Response, next: NextFunction) => {
     // Obtener lo roles, (desde currentUser)
@@ -54,7 +55,6 @@ export const getPermissions = async (req: Request, res: Response, next: NextFunc
     const mergedRolesPermissions = [... new Set(roles?.flatMap(x => x.permissions))];
     console.log('mergedPermissions :>>', mergedRolesPermissions);
 
-
     // - Verificar si el usuario Tiene Permisos
     // - Tienen mayor prioridad q los permisos de los roles
     let userPermissions: string[] = [];
@@ -71,12 +71,13 @@ export const getPermissions = async (req: Request, res: Response, next: NextFunc
     // comparar los permisos armados en el scope con los permisos de los roles de usuario
     const permissionsGranted = findMethod?.permissions.find(x => userPermissions.includes(x));
 
-
     console.log('permissionsGranted :>>', permissionsGranted);
 
     //   - si no hay match, regresamos un error unauthorized
-    if(!permissionsGranted) return res.status(401).send("Unauthorized!");
+    if(!permissionsGranted) {
+        res.status(401).send("Unauthorized!");
+        return;
+    }
     //   - si todo bien next()
     next();
-
 }

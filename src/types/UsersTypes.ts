@@ -2,7 +2,7 @@ import { Repository, Query} from "./RepositoryTypes";
 import { Roles } from "./RolesTypes";
 
 export interface User extends Document {
-    _id: any;
+    id: any;
     name: string; 
     username: string;
     email: string; 

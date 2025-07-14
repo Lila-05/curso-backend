@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { createRoles, deleteRoles, findRoles, findRolesById, uptadeRoles } from "@controllers/rolesControllers";
-import { createUser, deleteUser, findUsers, findUsersById, uptadeUser } from "@controllers/usersControllers";
-import { loginUser, registerUser } from "@controllers/auth/authController";
-import { createPosts, deletePosts, findPosts, findPostsById, uptadePosts } from "@controllers/postsControllers";
-import { getPermissions, verifyToken } from "@middlewares/auth";
-import { checkRoles } from "@middlewares/roles";
+import { createRoles, deleteRoles, findRoles, findRolesById, uptadeRoles } from "../controllers/rolesControllers";
+import { createUser, deleteUser, findUsers, findUsersById, uptadeUser } from "../controllers/usersControllers";
+import { loginUser, registerUser } from "../controllers/auth/authController";
+import { createPosts, deletePosts, findPosts, findPostsById, uptadePosts } from "../controllers/postsControllers";
+import { getPermissions, verifyToken } from "../middlewares/auth";
+import { checkRoles } from "../middlewares/roles";
 
 
 
