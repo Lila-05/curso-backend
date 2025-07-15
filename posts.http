@@ -1,0 +1,22 @@
+POST http://localhost:4000/api/v1/posts HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzA0ODg4YzVlZWY2MTJkMzZhMWU1ZSIsImVtYWlsIjoiYWRtaW5AdGVzdC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzUyNTM1MTg3LCJleHAiOjE3NTI1Mzg3ODd9.BR71-yQsJegrXrIftFOHF0GLuyoooe6t1DYqRH1HDs8
+
+{
+    "title": "Post prueba guest 1", 
+    "name": "Lina"
+}
+
+#Manager eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzA0OTA3YzVlZWY2MTJkMzZhMWU2ZSIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsInVzZXJuYW1lIjoidGVzdCIsImlhdCI6MTc1MjIwMDMxNCwiZXhwIjoxNzUyMjAzOTE0fQ.aQmpTQho2Q4SCGKnRnSuWoLB2Q2QtAbqbA_it5lG7AA
+
+###
+GET http://localhost:4000/api/v1/posts HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzA0ODg4YzVlZWY2MTJkMzZhMWU1ZSIsImVtYWlsIjoiYWRtaW5AdGVzdC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzUyNTM1MTg3LCJleHAiOjE3NTI1Mzg3ODd9.BR71-yQsJegrXrIftFOHF0GLuyoooe6t1DYqRH1HDs8
+###
+PUT http://localhost:4000/api/v1/posts/6870298de8d474a815e8c766 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzA0ODg4YzVlZWY2MTJkMzZhMWU1ZSIsImVtYWlsIjoiYWRtaW5AdGVzdC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzUyNTM1MTg3LCJleHAiOjE3NTI1Mzg3ODd9.BR71-yQsJegrXrIftFOHF0GLuyoooe6t1DYqRH1HDs8
+
+{
+    "title": "Prueba actualizar"
+}

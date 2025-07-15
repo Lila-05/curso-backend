@@ -1,0 +1,30 @@
+POST http://localhost:4000/api/v1/users HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzA0OGVkYzVlZWY2MTJkMzZhMWU2YSIsImVtYWlsIjoiZ3Vlc3RAdGVzdC5jb20iLCJ1c2VybmFtZSI6Imd1ZXN0IiwiaWF0IjoxNzUyMjgyOTk1LCJleHAiOjE3NTIyODY1OTV9.g_R2qkkLus4yPN6UVHVLUNV7QmpA5mIu2VBAdKW3m2k
+
+
+{
+    "name": "Lina3",
+    "username": "LinaDev1",
+    "email": "example5@test.com",
+    "password": "1234567"
+}
+
+
+###
+GET http://localhost:4000/api/v1/users HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzA0ODg4YzVlZWY2MTJkMzZhMWU1ZSIsImVtYWlsIjoiYWRtaW5AdGVzdC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzUyMjgzMTY5LCJleHAiOjE3NTIyODY3Njl9.0qLDkZv1JqFLxNINI8rWbierDz_Idia17bJYPC7OsGo
+###
+PUT  http://localhost:4000/api/v1/users/687048edc5eef612d36a1e6a HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzA0ODg4YzVlZWY2MTJkMzZhMWU1ZSIsImVtYWlsIjoiYWRtaW5AdGVzdC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzUyMjgyNDYwLCJleHAiOjE3NTIyODYwNjB9.vDrol903mRTqOY7xMTvWrBRRYEQFlUTWWce3YVzdD9c
+
+{
+    "permissions":["posts_read", "posts_write"]
+}
+
+###
+GET http://localhost:4000/api/v1/users/68672bf5ab78079c65ad21b6 HTTP/1.1
+
+###
+DELETE http://localhost:4000/api/v1/users/68672c66ab78079c65ad21bc HTTP/1.1
